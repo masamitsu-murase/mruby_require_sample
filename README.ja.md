@@ -70,7 +70,9 @@ main(int argc, char **argv)
 }
 ```
 
-こちらをコンパイルし、`libmruby_require.a`, `libmruby.a`, `libmruby_core.a`, `test.o`, `main.o`, `test.o` とリンクさせればできあがりです。
+`mrb_init_kernel_require` を呼ぶのを忘れないでください。
+
+こちらをコンパイルし、`libmruby_require.a`, `libmruby.a`, `libmruby_core.a`, `test.o`, `main.o` とリンクさせればできあがりです。
 
 ## 仕組み
 仕組みというほどややこしいことはしていませんが、 `-B` オプションでコンパイルされたものを、 `mrb_read_irep` で読み込んで実行させています。
