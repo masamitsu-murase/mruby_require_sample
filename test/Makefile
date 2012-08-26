@@ -4,8 +4,8 @@
 # project-specific macros
 # extension of the executable-file is modifiable(.exe .out ...)
 BASEDIR = .
-TARGET := $(BASEDIR)/mruby
-MRBCSRC := $(patsubst %.rb,%.c,$(wildcard $(BASEDIR)/test*.rb))
+TARGET := $(BASEDIR)/mruby_require_test
+MRBCSRC := $(patsubst %.rb,%.c,$(wildcard $(BASEDIR)/*.rb))
 LIBR := $(BASEDIR)/../lib/libmruby_require.a
 
 EXCEPT1 := $(MRBCSRC)
@@ -58,7 +58,7 @@ all : $(TARGET)
 
 .PHONY : run
 run : $(TARGET)
-	./$(TARGET) main.rb
+	./$(TARGET)
 
 # executable constructed using linker from object files
 $(TARGET) : $(OBJS) $(OBJMRB) $(LIBR)
