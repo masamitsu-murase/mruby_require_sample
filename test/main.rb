@@ -25,6 +25,8 @@ end
 ################################################
 # test for 'require'
 
+puts "Start"
+
 ##
 # 1. Check sharing variables and methods.
 shared = "main.rb"
@@ -118,7 +120,7 @@ check("test10.rb", Test10Class.new.method2, "Class should be overridden. (method
 # Recursive loading
 $num = 0
 load("test11.rb")
-check(100, $num, "Recursive loading check.")
+check(50, $num, "Recursive loading check.")
 
 ################################################
 # Results

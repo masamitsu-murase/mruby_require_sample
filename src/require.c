@@ -49,7 +49,7 @@ load_file(mrb_state *mrb, mrb_value filename)
 
   if (!data) {
     dlclose(dlh);
-    mrb_raise(mrb, E_SCRIPT_ERROR, "file '%s' not found.", RSTRING_PTR(str));
+    mrb_raisef(mrb, E_SCRIPT_ERROR, "file '%s' not found.", RSTRING_PTR(str));
   }
   n = mrb_read_irep(mrb, data);
   dlclose(dlh);
@@ -71,7 +71,7 @@ load_file(mrb_state *mrb, mrb_value filename)
   }
 }
 
-mrb_value
+static mrb_value
 mrb_f_require(mrb_state *mrb, mrb_value self)
 {
   mrb_value filename, loaded_features, loading_features;
@@ -123,7 +123,7 @@ mrb_f_require(mrb_state *mrb, mrb_value self)
   return mrb_true_value();
 }
 
-mrb_value
+static mrb_value
 mrb_f_load(mrb_state *mrb, mrb_value self)
 {
   mrb_value filename;

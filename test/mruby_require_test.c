@@ -16,7 +16,7 @@ check_result(mrb_state *mrb)
   /* $ko_test and $kill_test should be 0 */
   mrb_value ko_counter = mrb_gv_get(mrb, mrb_intern(mrb, "$ko_counter"));
 
-  if (FIXNUM_P(ko_counter) && mrb_fixnum(ko_counter) == 0){
+  if (mrb_fixnum_p(ko_counter) && mrb_fixnum(ko_counter) == 0){
       return EXIT_SUCCESS;
   }else{
       return EXIT_FAILURE;

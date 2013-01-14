@@ -63,11 +63,11 @@ clean :
 # libmruby.a
 tmp/mruby:
 	mkdir -p tmp/mruby
-	cd tmp; git clone https://github.com/mruby/mruby.git
+	cd tmp; git clone git://github.com/mruby/mruby.git
 
 vendors/lib/libmruby.a: tmp/mruby
 	cd tmp/mruby && make
 	mkdir -p vendors
 	cp -r tmp/mruby/include vendors/
-	cp -r tmp/mruby/lib vendors/
-	cp -r tmp/mruby/bin vendors/
+	cp -r tmp/mruby/build/host/lib vendors/
+	cp -r tmp/mruby/build/host/bin vendors/
